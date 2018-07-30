@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+$this->get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+$this->get('/tasks', 'TasksController@index')->name('home');
