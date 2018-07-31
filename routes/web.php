@@ -18,3 +18,11 @@ $this->get('/', function () {
 Auth::routes();
 
 $this->get('/tasks', 'TasksController@index')->name('home');
+$this->get('tasks/create', 'TasksController@create')->name('task.create');
+$this->post('/tasks', 'TasksController@store')->name('task.store');
+$this->get('/tasks/{id}', 'TasksController@show')->name('task.show');
+$this->get('/tasks/{id}/edit', 'TasksController@edit')->name('task.edit');
+$this->put('/tasks/{id}', 'TasksController@update')->name('task.update');
+$this->delete('/tasks/{id}', 'TasksController@destroy')->name('task.destroy');
+
+$this->resource('category', 'CategoryController');

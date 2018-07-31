@@ -18,7 +18,7 @@
             <ul class="list-unstyled components">
                 <p>To Do List</p>
                 <li>
-                    <a href="#">Add category</a>
+                    <a href="{{ route('category.create') }}">Add category</a>
                 </li>
                 <li>
                     <a href="#">Add task</a>

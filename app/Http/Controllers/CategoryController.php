@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class TasksController extends Controller
+class CategoryController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    private $categoryModel;
+
+
+    public function __construct(Category $category)
     {
+        $this->categoryModel = $category;
         $this->middleware('auth');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -26,7 +24,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return view('tasks.index');
+        //
     }
 
     /**
@@ -36,7 +34,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        $colors = $this->categoryModel->getAllColors();
+
+
+        return view('category.create', compact('colors'));
     }
 
     /**
@@ -47,16 +48,16 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dump($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
         //
     }
@@ -64,10 +65,10 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
     }
@@ -76,10 +77,10 @@ class TasksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -87,10 +88,10 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
     }
