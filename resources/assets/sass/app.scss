@@ -12,3 +12,15 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.category-item {
+  padding:10px 10px;
+  margin:10px;
+  background-color:rgba(darkgray, 0.2);
+  border-radius:10px;
+
+  &--name {
+    font-size:1.3em;
+    font-weight:200;
+  }
+}

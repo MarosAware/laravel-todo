@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $table = 'category';
+    protected $table = 'categories';
 
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name', 'color', 'user_id'];
 
 
-    protected $colors = ['gray', 'blue', 'red', 'green', 'yellow'];
+    public $colors = ['gray', 'blue', 'red', 'green', 'yellow'];
 
     public function getAllColors()
     {

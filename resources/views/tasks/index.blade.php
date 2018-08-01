@@ -5,7 +5,7 @@
         <a class="nav-link" href="#">Add task</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Add category</a>
+        <a class="nav-link" href="">Add category</a>
     </li>
 
     @endsection
@@ -18,22 +18,16 @@
             <ul class="list-unstyled components">
                 <p>To Do List</p>
                 <li>
-                    <a href="{{ route('category.create') }}">Add category</a>
-                </li>
-                <li>
-                    <a href="#">Add task</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tasks</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Add task</a>
+                        </li>
                         <li>
                             <a href="#">Completed</a>
                         </li>
                         <li>
                             <a href="#">Uncompleted</a>
-                        </li>
-                        <li>
-                            <a href="#">something</a>
                         </li>
                     </ul>
                 </li>
@@ -41,13 +35,10 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Categories</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Home 1</a>
+                            <a href="{{ route('category.index') }}">All categories</a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
+                            <a href="{{ route('category.create') }}">Add category</a>
                         </li>
                     </ul>
                 </li>

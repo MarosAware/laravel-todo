@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class CategoryController extends Controller
 {
@@ -24,7 +26,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = $this->categoryModel->latest()->get();
+
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -35,7 +39,7 @@ class CategoryController extends Controller
     public function create()
     {
         $colors = $this->categoryModel->getAllColors();
-
+        //dump(request()->session()->get('errors'));
 
         return view('category.create', compact('colors'));
     }
@@ -46,9 +50,23 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
-        dump($request);
+
+        $data = $request->validated();
+
+        $userId = auth()->user()->id;
+
+        $category = $this->categoryModel->create([
+            'name' => $data['name'],
+            'color' => $data['color'],
+            'user_id' => $userId
+        ]);
+
+        auth()->user()->addCategory($category);
+
+        return redirect()->route('category.index');
+
     }
 
     /**

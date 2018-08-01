@@ -24,6 +24,8 @@
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+                @include('layouts.error')
             </form>
         </div>
     </div>
