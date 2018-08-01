@@ -16,7 +16,9 @@
                                     {{ $category->name }}
                                 </div>
                             </div>
+
                         </div>
+                        <span><a href="{{ route('category.edit', [$category]) }}" class="btn btn-primary">Edit</a></span>
                     </div>
                 @endforeach
             @endif

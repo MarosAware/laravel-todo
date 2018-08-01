@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\MessageBag;
 
 class CategoryController extends Controller
 {
@@ -88,7 +87,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $colors = $category->getAllColors();
+
+        return view('category.edit', compact('category', 'colors'));
     }
 
     /**
