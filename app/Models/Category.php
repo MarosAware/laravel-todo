@@ -11,7 +11,7 @@ class Category extends Model
     protected $fillable = ['name', 'color', 'user_id'];
 
 
-    public $colors = ['gray', 'blue', 'red', 'green', 'yellow'];
+    public $colors = ['Gray', 'Blue', 'Red', 'Green', 'Yellow'];
 
     public function getAllColors()
     {

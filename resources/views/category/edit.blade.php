@@ -1,35 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--TODO: Make laravel form model binging --}}
+
     <div class="row">
         <div class="col-md-12">
-            <h2>Create category:</h2>
-            <form action="{{ route('category.update', [$category]) }}" method="post">
-                @csrf
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name for category..." name="name"
-                           value="{{ $category->name }}">
-                </div>
+            <h2>Edit category:</h2>
+            {!! Form::model($category, array('route' => array('category.update', $category), 'method' => 'PATCH'))  !!}
+            <div class="form-group">
+                {!! Form::label('name', 'Name:') !!}
+                {!! Form::text('name', null, array('class' => 'form-control')) !!}
+            </div>
 
-                <div class="form-group">
-                    <label for="color">Select color:</label>
-                    <select class="form-control" name="color" id="color">
-                        <option value="null" disabled selected>Choose your color...</option>
+            <div class="form-group">
+                {!! Form::label('color', 'Selected color:') !!}
+                {!! Form::select('color', $category->colors, null, array('class' => 'form-control')) !!}
+            </div>
 
-                        @foreach($colors as $key => $value )
-                            <option value="{{ $key }}">{{ ucfirst($value) }}</option>
-                        @endforeach
+            {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
 
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-
-                @include('layouts.error')
-            </form>
+            @include('layouts.error')
+            {!! Form::close() !!}
         </div>
     </div>
-
 
 @endsection
