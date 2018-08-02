@@ -10489,3 +10489,8 @@ a.text-dark:focus {
   font-weight: 200;
 }
 
+.category-item--btn {
+  margin-top: 19px;
+  padding: 8px 30px;
+}
+

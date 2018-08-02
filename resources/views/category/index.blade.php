@@ -18,7 +18,7 @@
                             </div>
 
                         </div>
-                        <span><a href="{{ route('category.edit', [$category]) }}" class="btn btn-primary">Edit</a></span>
+                        <span><a href="{{ route('category.edit', [$category]) }}" class="category-item--btn btn btn-primary">Edit</a></span>
                     </div>
                 @endforeach
             @endif
