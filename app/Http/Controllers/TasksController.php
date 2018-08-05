@@ -8,13 +8,16 @@ use Illuminate\Http\Request;
 class TasksController extends Controller
 {
 
+    protected $taskModel;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Task $task)
     {
+        $this->taskModel = $task;
         $this->middleware('auth');
     }
 
@@ -36,7 +39,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        $priorityTypes = $this->taskModel->getPriorityTypes();
+        $categories = auth()->user()->categories;
+
+        return view('tasks.create', compact('priorityTypes', 'categories'));
     }
 
     /**
@@ -47,7 +53,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dump($request->all());
     }
 
     /**

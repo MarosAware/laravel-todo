@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->longText('body');
             $table->date('deadline');
-            $table->enum('priority', ['high', 'mid', 'low']);
+            $table->integer('priority');
             $table->integer('completed')->default(0);
             $table->timestamps();
 
