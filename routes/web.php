@@ -12,7 +12,7 @@
 */
 
 $this->get('/', function () {
-    return view('welcome');
+    return redirect('/tasks');
 });
 
 Auth::routes();

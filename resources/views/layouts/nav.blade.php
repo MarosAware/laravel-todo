@@ -8,10 +8,10 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                @yield('nav')
-            </ul>
+            {{--<!-- Left Side Of Navbar -->--}}
+            {{--<ul class="navbar-nav mr-auto">--}}
+                {{--@yield('nav')--}}
+            {{--</ul>--}}
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

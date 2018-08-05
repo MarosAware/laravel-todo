@@ -26,31 +26,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 </head>
 <body>
-    <div id="app">
-        @include('layouts.nav')
+<div id="app">
+    @include('layouts.nav')
+
+        @yield('content')
+</div>
 
 
-
-        <main class="py-4">
-            <div class="container">
-                @include('layouts.sidebar')
-
-                <div id="content">
-
-                    <div class="row">
-                        <div class="md-col-12 mb-4">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                <i class="fas fa-align-left"></i>
-                                <span>Toggle Sidebar</span>
-                            </button>
-                        </div>
-                    </div>
-                        @yield('content')
-                </div>
-            </div>
-        </main>
-    </div>
-
-    @include('layouts.scripts')
+@include('layouts.scripts')
 </body>
 </html>
