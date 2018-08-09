@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-                <span><a href="{{ route('category.edit', [$category]) }}" class="category-item--btn btn btn-primary">Edit</a></span>
+                @include('category.partials.buttons')
             </div>
         </div>
     </div>
