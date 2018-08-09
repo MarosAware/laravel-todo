@@ -9,18 +9,23 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name for category..." name="name">
+                    <input value="{{ old('name') }}" type="text" class="form-control" id="name" placeholder="Enter name for category..." name="name">
                 </div>
 
                 <div class="form-group">
                     <label for="color">Select color:</label>
                     <select class="form-control" name="color" id="color">
-                        <option value="null" disabled selected>Choose your color...</option>
+                        @if (!old('color'))
+                            <option value="null" disabled selected>Choose your color...</option>
+                        @endif
 
-                        @foreach($colors as $key => $value )
-                            <option value="{{ $key }}">{{ ucfirst($value) }}</option>
-                        @endforeach
-
+                            @foreach($colors as $key => $value )
+                                @if(old('color') && old('color') == $key)
+                                    <option value="{{ $key }}" selected>{{ ucfirst($value) }}</option>
+                                @else
+                                    <option value="{{ $key }}">{{ ucfirst($value) }}</option>
+                                @endif
+                            @endforeach
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
