@@ -52,21 +52,14 @@ class CategoryController extends Controller
      */
     public function store(StoreCategory $request)
     {
-
-        $data = $request->validated();
-
         $userId = auth()->user()->id;
+        $request->request->add(['user_id' => $userId]);
 
-        $category = $this->categoryModel->create([
-            'name' => $data['name'],
-            'color' => $data['color'],
-            'user_id' => $userId
-        ]);
+        $category = $this->categoryModel->create($request->all());
 
         auth()->user()->addCategory($category);
 
         return redirect()->route('category.index');
-
     }
 
     /**

@@ -3,7 +3,7 @@
     <nav id="sidebar">
 
         <ul class="list-unstyled components">
-            <p>To Do List</p>
+            <p><a href="{{ route('home') }}">To Do List</a></p>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tasks</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
