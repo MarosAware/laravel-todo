@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Edit category:</h2>
-            {!! Form::model($category, array('route' => array('category.update', $category), 'method' => 'PATCH'))  !!}
+            {!! Form::model($category, array('route' => array('category.update', $category), 'method' => 'PUT'))  !!}
             <div class="form-group">
                 {!! Form::label('name', 'Name:') !!}
                 {!! Form::text('name', null, array('class' => 'form-control')) !!}

@@ -40,6 +40,11 @@
 
   &__task {
     background-color: rgba(black, 0.1);
+
+    &--completed {
+      background-color: hsla(120, 100%, 40%, 0.5);
+      opacity:0.35;
+    }
   }
 
 }
@@ -53,6 +58,34 @@
   &__checkbox {
     float:left;
   }
+
+  &__priority {
+    position:relative;
+    float:right;
+    width:60px;
+    height:35px;
+    padding: 5px;
+    text-align:center;
+
+    &--0 {
+      background-color:green;
+    }
+
+    &--1 {
+      background-color:yellow;
+    }
+
+    &--2 {
+      background-color:red;
+    }
+
+  }
+
+  &__deadline {
+    float:right;
+    margin-right:20px;
+  }
+
 
   &__name {
     font-size:1.5rem;
