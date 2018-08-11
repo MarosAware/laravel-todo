@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTask;
+use App\Models\Category;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,11 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return view('tasks.index');
+        $user = auth()->user();
+        $categories = $user->categories()->has('tasks')->with('tasks')->get();
+
+
+        return view('tasks.index', compact('categories'));
     }
 
     /**
@@ -54,7 +59,13 @@ class TasksController extends Controller
      */
     public function store(StoreTask $request)
     {
+        $user = auth()->user();
+        $request->request->add(['user_id' => $user->id]);
 
+        $task = $this->taskModel->create($request->all());
+        $user->addTask($task);
+
+        return redirect()->route('home');
     }
 
     /**

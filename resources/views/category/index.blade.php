@@ -13,7 +13,7 @@
                         <div class="col-md-6">
                             <a href="{{ route('category.show', [$category]) }}">
                             <div class="category-item" style="border:4px solid {{ $category->colors[$category->color] }}">
-                                <div class="category-item--name">
+                                <div class="category-item__name">
                                     {{ $category->name }}
                                 </div>
                             </div>

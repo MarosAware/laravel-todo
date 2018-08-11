@@ -13,7 +13,7 @@ class StoreTask extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class StoreTask extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|min:3',
+            'category_id' => 'required|integer',
+            'priority' => 'required|integer|between:0,2',
+            'deadline' => 'required|date|after_or_equal:today'
+        ];
+    }
 
+    /**
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Name of the task is required and must be at least 3 character.',
+            'category_id.required' => 'Please assign category to the task.',
+            'priority.integer' => 'Invalid priority.',
+            'deadline.date' => 'Deadline must be a date.',
+            'deadline.after_or_equal' => 'Deadline must be greater or equal today date.'
         ];
     }
 }

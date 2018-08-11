@@ -38,7 +38,7 @@
 
                 <div class="form-group">
                     <label for="name">Task deadline:</label>
-                    <input class="form-control" type="date"
+                    <input name="deadline" class="form-control" type="date"
                            value="{{ Carbon\Carbon::now()->format('Y-m-d') }}"
                            min="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
                 </div>

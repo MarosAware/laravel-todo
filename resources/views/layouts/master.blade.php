@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('css/style2.css')}}">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -40,7 +41,6 @@
                     <div class="row">
                         <div class="md-col-12 mb-4">
                             <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                <i class="fas fa-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
                         </div>

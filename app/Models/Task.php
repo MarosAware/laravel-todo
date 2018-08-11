@@ -8,7 +8,7 @@ class Task extends Model
 {
     protected $table = 'tasks';
 
-    protected $fillable = ['name', 'body', 'deadline', 'priority'];
+    protected $fillable = ['name', 'user_id', 'category_id', 'body', 'deadline', 'priority'];
 
     public $priorityTypes = ['low', 'mid', 'high'];
 
@@ -17,9 +17,9 @@ class Task extends Model
         return $this->priorityTypes;
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasOne('categories');
+        return $this->belongsTo(Category::class);
     }
 
 }

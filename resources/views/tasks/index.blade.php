@@ -2,23 +2,47 @@
 
 
 @section('content')
-    <h2>Lorem ipsum dolor sit amet.</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fugit?</p>
-
-    <div class="line"></div>
-
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fugit?</p>
 
 
-    <div class="line"></div>
 
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fugit?</p>
+    @foreach($categories as $category)
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="category-item" style="border:4px solid {{ $category->colors[$category->color] }}">
+                    <div class="category-item__name">
+                        {{ $category->name }}
+                    </div>
 
 
-    <div class="line"></div>
 
-    <h3>Lorem Ipsum Dolor</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fugit?</p>
+                    @foreach($category->tasks as $task)
+                        <div class="category-item__task">
+
+                            <div class="task-item" >
+                                <div class="task-item__checkbox">
+                                    <div class="checkbox">
+                                        <label style="font-size: 2.2em">
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="task-item__name">
+                                    {{ $task->name }}
+                                </div>
+                                <div class="task-item__body">
+                                    {{ $task->body }}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
+
+            </div>
+        </div>
+
+    @endforeach
 @endsection

@@ -18,4 +18,9 @@ class Category extends Model
         return $this->colors;
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
 }
