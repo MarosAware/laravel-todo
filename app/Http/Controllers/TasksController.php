@@ -70,12 +70,13 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
     {
-        return view('tasks.show', compact('task'));
+        $categoryName = $task->category->name;
+        return view('tasks.show', compact('task', 'categoryName'));
     }
 
     /**

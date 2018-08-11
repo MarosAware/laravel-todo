@@ -39,7 +39,7 @@
   }
 
   &__task {
-    background-color: rgba(black, 0.1);
+
 
     &--completed {
       background-color: hsla(120, 100%, 40%, 0.5);
@@ -54,10 +54,22 @@
   position:relative;
   font-weight: 700;
   margin-bottom:20px;
+  background-color: rgba(black, 0.1);
 
   &__checkbox {
     float:left;
   }
+
+  &__btn {
+    position:relative;
+    float:right;
+
+    a {
+      margin: 0;
+      width:100%;
+    }
+  }
+
 
   &__priority {
     position:relative;
@@ -66,6 +78,7 @@
     height:35px;
     padding: 5px;
     text-align:center;
+    margin-right:50px;
 
     &--0 {
       background-color:green;

@@ -10503,10 +10503,6 @@ a.text-dark:focus {
   font-size: 0.8rem;
 }
 
-.category-item__task {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .category-item__task--completed {
   background-color: rgba(0, 204, 0, 0.5);
   opacity: 0.35;
@@ -10517,10 +10513,21 @@ a.text-dark:focus {
   position: relative;
   font-weight: 700;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .task-item__checkbox {
   float: left;
+}
+
+.task-item__btn {
+  position: relative;
+  float: right;
+}
+
+.task-item__btn a {
+  margin: 0;
+  width: 100%;
 }
 
 .task-item__priority {
@@ -10530,6 +10537,7 @@ a.text-dark:focus {
   height: 35px;
   padding: 5px;
   text-align: center;
+  margin-right: 50px;
 }
 
 .task-item__priority--0 {
