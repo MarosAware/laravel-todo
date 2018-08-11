@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreCategory extends FormRequest
 {
@@ -21,10 +23,22 @@ class StoreCategory extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Category $category)
     {
+        if (request()->isMethod('PUT')) {
+            $modelId = $category->where(['name' => request()->name])->first()->id;
+        } else {
+            $modelId = null;
+        }
+
+
         return [
-            'name' => 'required|min:2|unique:categories',
+            'name' => [
+                'required',
+                'min:2',
+                Rule::unique('categories', 'name')->ignore($modelId)
+            ],
+
             'color' => 'required|integer|between:0,4'
         ];
     }

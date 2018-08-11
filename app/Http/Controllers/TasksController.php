@@ -34,7 +34,6 @@ class TasksController extends Controller
         $user = auth()->user();
         $categories = $user->categories()->has('tasks')->with('tasks')->get();
 
-
         return view('tasks.index', compact('categories'));
     }
 
@@ -74,9 +73,9 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
