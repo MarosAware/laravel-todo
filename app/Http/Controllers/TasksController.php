@@ -32,7 +32,9 @@ class TasksController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $categories = $user->categories()->has('tasks')->with('tasks')->get();
+        $categories = $user->categories()->has('tasks')->with(array('tasks' => function($query) {
+           $query->orderBy('priority', 'DESC');
+        }))->get();
 
         return view('tasks.index', compact('categories'));
     }
