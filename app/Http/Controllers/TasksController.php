@@ -87,9 +87,11 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
-        //
+        $categories = auth()->user()->categories()->pluck('name', 'id');
+
+        return view('tasks.edit', compact('task', 'categories'));
     }
 
     /**
