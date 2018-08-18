@@ -10552,6 +10552,10 @@ a.text-dark:focus {
   background-color: red;
 }
 
+.task-item__lineThrough {
+  text-decoration: line-through;
+}
+
 .task-item__deadline {
   float: right;
   margin-right: 20px;

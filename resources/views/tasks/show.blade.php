@@ -27,15 +27,16 @@
                 <div class="task-item__priority task-item__priority--{{ $task->priority }}">
                     {{ $task->priorityTypes[$task->priority] }}
                 </div>
-
-                <div class="task-item__deadline">
-                    {{ $task->deadline }}
-                </div>
-                <div class="task-item__name">
-                    {{ $task->name }}
-                </div>
-                <div class="task-item__body">
-                    {{ $task->body }}
+                <div class="{{ $task->completed ? 'task-item__lineThrough': '' }}">
+                    <div class="task-item__deadline">
+                        {{ $task->deadline }}
+                    </div>
+                    <div class="task-item__name">
+                        {{ $task->name }}
+                    </div>
+                    <div class="task-item__body">
+                        {{ $task->body }}
+                    </div>
                 </div>
             </div>
 

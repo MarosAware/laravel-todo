@@ -103,7 +103,12 @@ class TasksController extends Controller
      */
     public function update(StoreTask $request,  Task $task)
     {
+
         $task->update($request->all());
+
+        if($request->ajax()) {
+            return response()->json(['success' => true, 'data' => $task], 200);
+        }
 
         return redirect()->route('home');
     }

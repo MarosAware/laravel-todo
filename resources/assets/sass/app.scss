@@ -94,6 +94,10 @@
 
   }
 
+  &__lineThrough {
+    text-decoration:line-through;
+  }
+
   &__deadline {
     float:right;
     margin-right:20px;

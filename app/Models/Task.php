@@ -8,7 +8,7 @@ class Task extends Model
 {
     protected $table = 'tasks';
 
-    protected $fillable = ['name', 'user_id', 'category_id', 'body', 'deadline', 'priority'];
+    protected $fillable = ['name', 'user_id', 'category_id', 'body', 'deadline', 'priority', 'completed'];
 
     public $priorityTypes = ['low', 'mid', 'high'];
 
