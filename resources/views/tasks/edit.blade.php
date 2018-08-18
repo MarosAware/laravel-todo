@@ -29,7 +29,7 @@
 
         <div class="form-group">
             {!! Form::label('deadline', 'Task deadline:') !!}
-            {!! Form::date('deadline', $task->deadline, ['class' => 'form-control']) !!}
+            {!! Form::date('deadline', $task->deadline, ['class' => 'form-control', 'min' => $task->deadline]) !!}
         </div>
 
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}

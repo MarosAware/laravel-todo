@@ -11,7 +11,7 @@
                     <div class="checkbox">
                         <label style="font-size: 2.2em">
                             @if ($task->completed)
-                                <input type="checkbox" value="{{ $task->completed }}" checked>
+                                <input type="checkbox" value="{{ $task->completed }}" checked disabled>
                             @else
                                 <input type="checkbox" value="{{ $task->completed }}">
                             @endif

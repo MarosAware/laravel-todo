@@ -101,9 +101,11 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreTask $request,  Task $task)
     {
-        //
+        $task->update($request->all());
+
+        return redirect()->route('home');
     }
 
     /**
@@ -112,8 +114,10 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->route('home');
     }
 }
