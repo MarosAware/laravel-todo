@@ -11,10 +11,10 @@
                         <a href="{{ route('task.create') }}">Add task</a>
                     </li>
                     <li>
-                        <a href="#">Completed</a>
+                        <a href="{{ route('task.completed') }}">Completed</a>
                     </li>
                     <li>
-                        <a href="#">Uncompleted</a>
+                        <a href="{{ route('task.uncompleted') }}">Uncompleted</a>
                     </li>
                 </ul>
             </li>

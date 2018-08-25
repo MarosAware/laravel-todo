@@ -18,6 +18,8 @@ $this->get('/', function () {
 Auth::routes();
 
 $this->get('/tasks', 'TasksController@index')->name('home');
+$this->get('/tasks/completed', 'TasksController@completed')->name('task.completed');
+$this->get('/tasks/uncompleted', 'TasksController@uncompleted')->name('task.uncompleted');
 $this->get('tasks/create', 'TasksController@create')->name('task.create');
 $this->post('/tasks', 'TasksController@store')->name('task.store');
 $this->get('/tasks/{task}', 'TasksController@show')->name('task.show');

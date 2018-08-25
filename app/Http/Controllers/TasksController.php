@@ -40,6 +40,36 @@ class TasksController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+
+    public function completed()
+    {
+        $user = auth()->user();
+        $categories = $user->categories()->has('tasks')->with(array('tasks' => function($query) {
+            $query->orderBy('priority', 'DESC');
+            $query->where('completed', 1);
+        }))->get();
+
+        return view('tasks.completed', compact('categories'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+
+    public function uncompleted()
+    {
+        $user = auth()->user();
+        $categories = $user->categories()->has('tasks')->with(array('tasks' => function($query) {
+            $query->orderBy('priority', 'DESC');
+            $query->where('completed', 0);
+        }))->get();
+
+        return view('tasks.completed', compact('categories'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
