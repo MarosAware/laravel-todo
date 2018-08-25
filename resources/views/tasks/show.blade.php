@@ -43,4 +43,6 @@
         </div>
     </div>
 
+    @include('comments.show')
+
 @endsection
