@@ -43,6 +43,8 @@
         </div>
     </div>
 
-    @include('comments.show')
+    @include('comments.index')
+
+    @include('comments.create')
 
 @endsection

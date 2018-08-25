@@ -1,12 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    private $commentModel;
+
+    public function __construct(Comment $comment)
+    {
+        $this->commentModel = $comment;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,24 +27,23 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Task $task)
     {
-        //
+
+        $this->validate($request,[
+           'body' => 'required|min:5'
+        ]);
+
+       $task->addComment($request->get('body'));
+
+        return redirect()->route('task.show', compact('task'));
+
+
     }
 
     /**
@@ -49,16 +57,6 @@ class CommentController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
